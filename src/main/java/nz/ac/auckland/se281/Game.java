@@ -8,6 +8,9 @@ public class Game {
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
+
+    // Print Welcome message.
+    MessageCli.WELCOME_PLAYER.printMessage(options[0]);
   }
 
   public void play() {}
