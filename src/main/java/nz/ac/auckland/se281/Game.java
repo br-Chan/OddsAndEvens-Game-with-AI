@@ -19,8 +19,19 @@ public class Game {
     ++numOfRounds;
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRounds));
 
-    // Ask user for input on number of fingers.
-    MessageCli.ASK_INPUT.printMessage();
+    // Prompt user for input for number of fingers.
+    String input = null;
+    while (!Utils.isInteger(input) || Integer.parseInt(input) > 5 || Integer.parseInt(input) < 0) {
+      // If user has input before, print the invalid input message.
+      if (input != null) {
+        MessageCli.INVALID_INPUT.printMessage();
+      }
+
+      // Print prompt message and get input.
+      MessageCli.ASK_INPUT.printMessage();
+      input = Utils.scanner.nextLine();
+    }
+
 
   }
 
