@@ -5,15 +5,17 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 /** This class represents the Game is the main entry point. */
 public class Game {
-  String playerName = null;
+  Player human;
+  Player ai;
   int numOfRounds = 0;
 
-  public void newGame(Difficulty difficulty, Choice choice, String[] options) {
-    // the first element of options[0]; is the name of the player
-    playerName = options[0];
 
-    // Print Welcome message.
-    MessageCli.WELCOME_PLAYER.printMessage(playerName);
+  public void newGame(Difficulty difficulty, Choice choice, String[] options) {
+
+    // Create new instance of Player class (overwriting any previous Player objects).
+    human = new Human(options[0]); // options[0] is the name of the player
+
+    MessageCli.WELCOME_PLAYER.printMessage(human.getName());
   }
 
   public void play() {
@@ -21,21 +23,13 @@ public class Game {
     ++numOfRounds;
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRounds));
 
-    // Prompt user for input for number of fingers.
-    String numOfFingers = null;
-    while (!Utils.isInteger(numOfFingers) || Integer.parseInt(numOfFingers) > 5 || Integer.parseInt(numOfFingers) < 0) {
-      // If user has input before, print the invalid input message.
-      if (numOfFingers != null) {
-        MessageCli.INVALID_INPUT.printMessage();
-      }
+    String humanNumOfFingers = human.pickFingers();
 
-      // Print prompt message and get input.
-      MessageCli.ASK_INPUT.printMessage();
-      numOfFingers = Utils.scanner.nextLine();
-    }
+    // Print information about human's name and number of fingers.
+    MessageCli.PRINT_INFO_HAND.printMessage(human.name, humanNumOfFingers);
 
-    // Print information about player name and number of fingers.
-    MessageCli.PRINT_INFO_HAND.printMessage(playerName, numOfFingers);
+    // Print information about AI's name and number of fingers.
+    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", "-1");
 
   }
 
