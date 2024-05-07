@@ -12,8 +12,11 @@ public class Game {
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
-    // Create new instance of Player class (overwriting any previous Player objects).
+    // Create new Human instance of Player class (overwriting previous object).
     human = new Human(options[0]); // options[0] is the name of the player
+
+    // Create new Ai instance of Player class (overwriting previous object).
+    ai = new EasyAi();
 
     MessageCli.WELCOME_PLAYER.printMessage(human.getName());
   }
@@ -23,13 +26,15 @@ public class Game {
     ++numOfRounds;
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRounds));
 
+    // Get the human to pick their number of fingers.
     String humanNumOfFingers = human.pickFingers();
 
-    // Print information about human's name and number of fingers.
-    MessageCli.PRINT_INFO_HAND.printMessage(human.name, humanNumOfFingers);
+    // Get the AI to pick its number of fingers.
+    String aiNumOfFingers = ai.pickFingers();
 
-    // Print information about AI's name and number of fingers.
-    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", "-1");
+    // Print information the name and number of fingers of each player.
+    MessageCli.PRINT_INFO_HAND.printMessage(human.getName(), humanNumOfFingers);
+    MessageCli.PRINT_INFO_HAND.printMessage(ai.getName(), aiNumOfFingers);
 
   }
 
