@@ -16,7 +16,7 @@ public class Skynet {
         System.err.println("invalid difficulty, defaulting to Easy");
     }
 
-    return new EasyAi();
+    return new EasyAi(choice);
   }
 
 }

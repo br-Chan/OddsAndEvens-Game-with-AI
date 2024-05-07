@@ -1,9 +1,11 @@
 package nz.ac.auckland.se281;
 
+import nz.ac.auckland.se281.Main.Choice;
+
 public class Human extends Player {
 
-  public Human(String name) {
-    super(name);
+  public Human(String name, Choice target) {
+    super(name, target);
 
   }
 

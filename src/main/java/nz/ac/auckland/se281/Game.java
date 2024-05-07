@@ -9,12 +9,14 @@ public class Game {
   Player ai;
   Skynet skynet = new Skynet();
   int numOfRounds = 0;
+  int fingerSum;
+  String evenOrOdd;
 
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
     // Create new Human instance of Player class (overwriting previous object).
-    human = new Human(options[0]); // options[0] is the name of the player
+    human = new Human(options[0], choice); // options[0] is the name of the player
 
     // Create new Ai instance of Player class (overwriting previous object) with factory.
     ai = skynet.createAi(difficulty, choice);
@@ -27,15 +29,26 @@ public class Game {
     ++numOfRounds;
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRounds));
 
-    // Get the human to pick their number of fingers.
+    // Get the human and AI to pick their number of fingers.
     String humanNumOfFingers = human.pickFingers();
-
-    // Get the AI to pick its number of fingers.
     String aiNumOfFingers = ai.pickFingers();
 
-    // Print information the name and number of fingers of each player.
+    // Print the name and number of fingers of each player.
     MessageCli.PRINT_INFO_HAND.printMessage(human.getName(), humanNumOfFingers);
     MessageCli.PRINT_INFO_HAND.printMessage(ai.getName(), aiNumOfFingers);
+
+    // Determine the round outcome.
+    // TODO: make this process its own method or something
+    fingerSum = Integer.valueOf(humanNumOfFingers) + Integer.valueOf(aiNumOfFingers);
+    if (Utils.isEven(fingerSum)) {
+      evenOrOdd = "EVEN";
+    } else {
+      evenOrOdd = "ODD";
+    }
+    if (human.getTarget().equals(evenOrOdd)) {
+      // change whole code so targets are not of enum Choice
+    }
+    MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(fingerSum), evenOrOdd);
 
   }
 
