@@ -7,6 +7,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
   Player human;
   Player ai;
+  Skynet skynet = new Skynet();
   int numOfRounds = 0;
 
 
@@ -15,8 +16,8 @@ public class Game {
     // Create new Human instance of Player class (overwriting previous object).
     human = new Human(options[0]); // options[0] is the name of the player
 
-    // Create new Ai instance of Player class (overwriting previous object).
-    ai = new EasyAi();
+    // Create new Ai instance of Player class (overwriting previous object) with factory.
+    ai = skynet.createAi(difficulty, choice);
 
     MessageCli.WELCOME_PLAYER.printMessage(human.getName());
   }
