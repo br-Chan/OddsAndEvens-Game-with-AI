@@ -21,7 +21,7 @@ public class HardAi extends Ai {
   @Override
   public String pickFingers() {
     // shouldSwitch is 1 for 4th round onwards and the latest win was the human's.
-    boolean shouldSwitch = numOfRounds > 3 && opponentWinHistory.size() - 1 == 1;
+    boolean shouldSwitch = numOfRounds > 3 && opponentWinHistory.get(opponentWinHistory.size() - 1) == 1;
 
     numOfRounds++;
 
