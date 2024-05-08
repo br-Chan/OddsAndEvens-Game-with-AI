@@ -4,13 +4,13 @@ import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
 public class Skynet {
-  public static Ai createAi(Difficulty difficulty, Choice choice) {
+  public static Ai createAi(Difficulty difficulty, Choice choice, Player opponent) {
     switch (difficulty) {
       case EASY:
         return new EasyAi(choice);
 
       case MEDIUM:
-        return new MediumAi(choice);
+        return new MediumAi(choice, opponent);
 
       case HARD:
         return new HardAi(choice);

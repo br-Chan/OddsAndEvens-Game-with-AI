@@ -6,39 +6,40 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class TopStrategy implements Strategy {
   Player ai;
-  List<Integer> humanFingerHistory;
+  List<Integer> opponentfingerHistory;
 
-  public TopStrategy(List<Integer> humanFingerHistory) {
-    this.humanFingerHistory = humanFingerHistory;
+  public TopStrategy(Player ai, List<Integer> opponentfingerHistory) {
+    this.ai = ai;
+    this.opponentfingerHistory = opponentfingerHistory;
 
   }
 
   @Override
   public int generateNumber() {
     int numberOfEvenFingers = 0;
-    Choice assumedHumanChoice = Choice.ODD; // Initially assume human will play odd.
+    Choice assumedOpponentChoice = Choice.ODD; // Initially assume opponent will play odd.
 
     // Use a for loop to increment the number of evens played,
-    // and assume the human will play even if this number surpasses half the history size.
-    for (int n : humanFingerHistory) {
+    // and assume the opponent will play even if this number surpasses half the history size.
+    for (int n : opponentfingerHistory) {
       if (Utils.isEven(n)) {
         numberOfEvenFingers++;
       }
 
-      if (numberOfEvenFingers > humanFingerHistory.size() / 2) {
-        assumedHumanChoice = Choice.EVEN;
+      if (numberOfEvenFingers > opponentfingerHistory.size() / 2) {
+        assumedOpponentChoice = Choice.EVEN;
         break;
       }
     }
 
-    // If half of the finger history is even, randomly pick.
-    if (numberOfEvenFingers == humanFingerHistory.size() - numberOfEvenFingers) {
+    // If half of the opponent's finger history is even, randomly pick.
+    if (numberOfEvenFingers == opponentfingerHistory.size() - numberOfEvenFingers) {
       System.out.println("Randomly picking."); // TODO remove this when required
       return Utils.getRandomNumberRange(0, 5);
     }
 
-    // If the human will play the same choice as the AI's target play even, odd otherwise.
-    if (ai.getTarget().equals(assumedHumanChoice)) {
+    // If the opponent will play the same choice as the AI's target play even, odd otherwise.
+    if (ai.getTarget().equals(assumedOpponentChoice)) {
       return Utils.getRandomEvenNumber();
     } else {
       return Utils.getRandomOddNumber();

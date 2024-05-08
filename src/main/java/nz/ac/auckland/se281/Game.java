@@ -16,7 +16,7 @@ public class Game {
     human = new Human(options[0], choice); // options[0] is the name of the player
 
     // Create new Ai instance of Player class (overwriting previous object) with factory.
-    ai = Skynet.createAi(difficulty, choice);
+    ai = Skynet.createAi(difficulty, choice, human);
 
     MessageCli.WELCOME_PLAYER.printMessage(human.getName());
   }

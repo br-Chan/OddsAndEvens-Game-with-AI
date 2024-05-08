@@ -12,19 +12,31 @@ public abstract class Ai extends Player {
     switch (userChoice) {
       case EVEN:
         this.target = Choice.ODD;
+        break;
 
       case ODD:
         this.target = Choice.EVEN;
+        break;
 
       default:
         System.err.println("invalid Choice, defaulting to ODD");
         this.target = Choice.ODD;
+        break;
     }
+
+    // Set the initial Strategy to Random Strategy.
+    currentStrategy = new RandomStrategy();
 
   }
 
   public void setCurrentStrategy(Strategy newStrategy) {
     this.currentStrategy = newStrategy;
+  }
+
+  // Baseline method: 'get the strategy to generate the number'.
+  @Override
+  public String pickFingers() {
+    return Integer.toString(currentStrategy.generateNumber());
   }
 
 }
