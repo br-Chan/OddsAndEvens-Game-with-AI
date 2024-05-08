@@ -24,6 +24,8 @@ public class Human extends Player {
       numOfFingers = Utils.scanner.nextLine();
     }
 
+    // Add the number of fingers to the finger history and return the integer.
+    fingerHistory.add(Integer.valueOf(numOfFingers));
     return numOfFingers;
   }
 }

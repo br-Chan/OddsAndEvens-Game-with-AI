@@ -11,7 +11,9 @@ public class EasyAi extends Ai {
 
   @Override
   public String pickFingers() {
-    return Integer.toString(currentStrategy.generateNumber());
+    int numOfFingers = currentStrategy.generateNumber();
+    //fingerHistory.add(numOfFingers); tentatively, remove when required
+    return Integer.toString(numOfFingers);
   }
 
 }

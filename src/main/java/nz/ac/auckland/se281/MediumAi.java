@@ -6,7 +6,7 @@ public class MediumAi extends Ai {
 
   public MediumAi(Choice userChoice) {
     super(userChoice);
-    //TODO Auto-generated constructor stub
+    currentStrategy = new RandomStrategy();
   }
 
   @Override
