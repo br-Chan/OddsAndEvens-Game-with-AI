@@ -40,4 +40,9 @@ public abstract class Player {
 
   // Returns the number of fingers chosen by the player (human or AI), as a string.
   public abstract String pickFingers();
+
+  @Override
+  public String toString() {
+    return name;
+  }
 }

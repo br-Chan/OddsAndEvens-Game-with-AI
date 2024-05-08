@@ -5,13 +5,11 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 /** This class represents the Game is the main entry point. */
 public class Game {
-  Player human;
-  Player ai;
-  Skynet skynet = new Skynet();
-  int numOfRounds = 0;
-  int fingerSum;
-  String evenOrOdd;
-
+  private Player human;
+  private Player ai;
+  private Skynet skynet = new Skynet();
+  private int numOfRounds = 0;
+  private int fingerSum;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
 
@@ -25,6 +23,10 @@ public class Game {
   }
 
   public void play() {
+    Choice sumEvenOrOdd;
+    String sumEvenOrOddString;
+    Player winner;
+
     // Print "Start round: #x:" where x increases by 1 each time play is invoked.
     ++numOfRounds;
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRounds));
@@ -38,17 +40,21 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(ai.getName(), aiNumOfFingers);
 
     // Determine the round outcome.
-    // TODO: make this process its own method or something
+    // TODO: improve this code, e.g. make it its own method, etc
     fingerSum = Integer.valueOf(humanNumOfFingers) + Integer.valueOf(aiNumOfFingers);
     if (Utils.isEven(fingerSum)) {
-      evenOrOdd = "EVEN";
+      sumEvenOrOdd = Choice.EVEN;
+      sumEvenOrOddString = "EVEN";
     } else {
-      evenOrOdd = "ODD";
+      sumEvenOrOdd = Choice.ODD;
+      sumEvenOrOddString = "ODD";
     }
-    if (human.getTarget().equals(evenOrOdd)) {
-      // change whole code so targets are not of enum Choice
+    if (human.getTarget().equals(sumEvenOrOdd)) {
+      winner = human;
+    } else {
+      winner = ai;
     }
-    MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(fingerSum), evenOrOdd);
+    MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(fingerSum), sumEvenOrOddString, winner.toString());
 
   }
 

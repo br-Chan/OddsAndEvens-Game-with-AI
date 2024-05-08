@@ -9,9 +9,9 @@ public class Skynet {
       case EASY:
         break;
       case MEDIUM:
-        return new MediumAi();
+        return new MediumAi(choice);
       case HARD:
-        return new HardAi();
+        return new HardAi(choice);
       default:
         System.err.println("invalid difficulty, defaulting to Easy");
     }
