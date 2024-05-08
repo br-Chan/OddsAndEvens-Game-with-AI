@@ -1,5 +1,8 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -8,22 +11,24 @@ public class Game {
   private Player human;
   private Player ai;
   private int numOfRounds;
-  private int fingerSum;
+  private List<Integer> winHistory;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
-    // Reset the number of rounds count.
+    // Reset the number of rounds count and win history.
     numOfRounds = 0;
+    winHistory = new ArrayList<>();
 
     // Create new Human instance of Player class (overwriting previous object).
     human = new Human(options[0], choice); // options[0] is the name of the player
 
     // Create new Ai instance of Player class (overwriting previous object) with factory.
-    ai = Skynet.createAi(difficulty, choice, human);
+    ai = Skynet.createAi(difficulty, choice, human, winHistory);
 
     MessageCli.WELCOME_PLAYER.printMessage(human.getName());
   }
 
   public void play() {
+    int fingerSum;
     Choice sumEvenOrOdd;
     String sumEvenOrOddString;
     Player winner;
@@ -52,8 +57,10 @@ public class Game {
     }
     if (human.getTarget().equals(sumEvenOrOdd)) {
       winner = human;
+      winHistory.add(1);
     } else {
       winner = ai;
+      winHistory.add(-1);
     }
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(fingerSum), sumEvenOrOddString, winner.toString());
 
