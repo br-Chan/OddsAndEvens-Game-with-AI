@@ -11,7 +11,7 @@ public class Game {
   private Player human;
   private Player ai;
   private int numOfRounds;
-  private List<Integer> winHistory;
+  private List<Player> winHistory;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // Reset the number of rounds count and win history.
@@ -57,11 +57,11 @@ public class Game {
     }
     if (human.getTarget().equals(sumEvenOrOdd)) {
       winner = human;
-      winHistory.add(1);
     } else {
       winner = ai;
-      winHistory.add(-1);
     }
+    winHistory.add(winner);
+    System.out.println("Win history: " + winHistory);
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(fingerSum), sumEvenOrOddString, winner.toString());
 
   }
