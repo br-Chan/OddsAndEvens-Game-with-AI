@@ -28,12 +28,18 @@ public class Game {
   }
 
   public void play() {
+    // Print error message if a game has not been started.
+    if (human == null) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     int fingerSum;
     Choice sumEvenOrOdd;
     String sumEvenOrOddString;
     Player winner;
 
-    // Print "Start round: #x:" where x increases by 1 each time play is invoked.
+    // Print "Start round: #x:" where x increases by 1 each time a new round starts.
     ++numOfRounds;
     MessageCli.START_ROUND.printMessage(Integer.toString(numOfRounds));
 
