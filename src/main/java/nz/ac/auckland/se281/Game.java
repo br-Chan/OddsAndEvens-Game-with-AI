@@ -10,11 +10,13 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
   private Player human;
   private Player ai;
+  private boolean gameActive;
   private int numOfRounds;
   private List<Player> winHistory;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // Reset the number of rounds count and win history.
+    gameActive = true;
     numOfRounds = 0;
     winHistory = new ArrayList<>();
 
@@ -28,9 +30,7 @@ public class Game {
   }
 
   public void play() {
-    // Print error message if a game has not been started.
-    if (human == null) {
-      MessageCli.GAME_NOT_STARTED.printMessage();
+    if (!checkGameActive()) {
       return;
     }
 
@@ -72,7 +72,41 @@ public class Game {
 
   }
 
-  public void endGame() {}
+  public void endGame() {
+    if (!checkGameActive()) {
+      return;
+    }
 
-  public void showStats() {}
+    gameActive = false;
+  }
+
+  public void showStats() {
+    if (!checkGameActive()) {
+      return;
+    }
+
+    int humanWins = 0;
+    int aiWins = 0;
+
+    // Increment human wins every time the human is encountered in win history.
+    for (Player player : winHistory) {
+      humanWins = (player == human) ? humanWins + 1 : humanWins;
+    }
+
+    aiWins = winHistory.size() - humanWins;
+
+    MessageCli.PRINT_PLAYER_WINS.printMessage(human.toString(), Integer.toString(humanWins), Integer.toString(aiWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(ai.toString(), Integer.toString(aiWins), Integer.toString(humanWins));
+  }
+
+  // Checks if a game has been started and hasn't been ended.
+  // Prints error message if game has not been started.
+  public boolean checkGameActive() {
+    if (gameActive) {
+      return true;
+    } else {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return false;
+    }
+  }
 }
