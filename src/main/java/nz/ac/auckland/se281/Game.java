@@ -77,6 +77,20 @@ public class Game {
       return;
     }
 
+    showStats();
+
+    int humanWins = getHumanWins();
+    int aiWins = winHistory.size() - humanWins;
+
+    // If the human and AI have equal wins, print tie message. Print the winner toherwise.
+    if (humanWins == aiWins) {
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
+    } else {
+      String winner = humanWins > aiWins ? human.getName() : ai.getName();
+      MessageCli.PRINT_END_GAME.printMessage(winner);
+    }
+
+
     gameActive = false;
   }
 
@@ -85,15 +99,8 @@ public class Game {
       return;
     }
 
-    int humanWins = 0;
-    int aiWins = 0;
-
-    // Increment human wins every time the human is encountered in win history.
-    for (Player player : winHistory) {
-      humanWins = (player == human) ? humanWins + 1 : humanWins;
-    }
-
-    aiWins = winHistory.size() - humanWins;
+    int humanWins = getHumanWins();
+    int aiWins = winHistory.size() - humanWins;
 
     MessageCli.PRINT_PLAYER_WINS.printMessage(human.toString(), Integer.toString(humanWins), Integer.toString(aiWins));
     MessageCli.PRINT_PLAYER_WINS.printMessage(ai.toString(), Integer.toString(aiWins), Integer.toString(humanWins));
@@ -109,4 +116,16 @@ public class Game {
       return false;
     }
   }
+
+  public int getHumanWins() {
+    int humanWins = 0;
+
+    // Increment human wins every time the human is encountered in win history.
+    for (Player player : winHistory) {
+      humanWins = (player == human) ? humanWins + 1 : humanWins;
+    }
+
+    return humanWins;
+  }
+
 }
