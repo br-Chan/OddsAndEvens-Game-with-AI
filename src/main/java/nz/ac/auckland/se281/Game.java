@@ -14,6 +14,14 @@ public class Game {
   private int numOfRounds;
   private List<Player> winHistory;
 
+  /**
+   * Starts a new game of ODD OR EVEN, overwriting any previously existing game.
+   * A Human object and Ai object are created, and a welcome message including
+   * the human player's name will be printed.
+   * @param difficulty the difficulty of the AI.
+   * @param choice the choice between ODD and EVEN that the human player must achieve.
+   * @param options options[0] is the name that the human player has inputted.
+   */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // Reset the number of rounds count and win history.
     gameActive = true;
@@ -29,6 +37,16 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(human.getName());
   }
 
+  /**
+   * Plays a round of the current game, if a game has been created.
+   * The current number of the round is printed depending on how many rounds have been played
+   * in this game. The Ai picks a number from 0 to 5 and the human player is prompted to do the
+   * same. These numbers are printed, the sum is calculated and the winner of the round is 
+   * determined (e.g. if the human player's choice was ODD, the human wins if the sum of the
+   * two numbers is ODD).
+   * <p>
+   * The round's winner is added to the arraylist winHistory.
+   */
   public void play() {
     if (!checkGameActive()) {
       return;
@@ -72,6 +90,10 @@ public class Game {
 
   }
 
+  /**
+   * If a game has been started, shows the stats of the game, determines the winner -
+   * whoever has won more games - and ends the current game. Ties are possible.
+   */
   public void endGame() {
     if (!checkGameActive()) {
       return;
@@ -94,6 +116,9 @@ public class Game {
     gameActive = false;
   }
 
+  /**
+   * If a game has been started, prints the wins and losses of each player.
+   */
   public void showStats() {
     if (!checkGameActive()) {
       return;
@@ -106,8 +131,11 @@ public class Game {
     MessageCli.PRINT_PLAYER_WINS.printMessage(ai.toString(), Integer.toString(aiWins), Integer.toString(humanWins));
   }
 
-  // Checks if a game has been started and hasn't been ended.
-  // Prints error message if game has not been started.
+  /**
+   * Checks if a game has been started and has not been ended.
+   * An error message is printed if a game has not been started.
+   * @return true if a game has been started and not ended, false otherwise.
+   */
   public boolean checkGameActive() {
     if (gameActive) {
       return true;
@@ -117,6 +145,11 @@ public class Game {
     }
   }
 
+  /**
+   * Iterates through the winHistory arraylist and adds up the number of times
+   * the human player occurs.
+   * @return the number of rounds the human has won in this game.
+   */
   public int getHumanWins() {
     int humanWins = 0;
 
