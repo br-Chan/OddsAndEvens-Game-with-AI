@@ -5,9 +5,9 @@ import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
 public class HardAi extends Ai {
-  Player opponent;
-  int numOfRounds;
-  List<Player> opponentWinHistory;
+  private Player opponent;
+  private int numOfRounds;
+  private List<Player> opponentWinHistory;
 
   public HardAi(Choice userChoice, Player opponent, List<Player> opponentWinHistory) {
     super(userChoice);

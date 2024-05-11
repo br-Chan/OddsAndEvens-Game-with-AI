@@ -3,8 +3,8 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Choice;
 
 public class MediumAi extends Ai {
-  Player opponent;
-  int numOfRounds;
+  private Player opponent;
+  private int numOfRounds;
 
   public MediumAi(Choice userChoice, Player opponent) {
     super(userChoice);

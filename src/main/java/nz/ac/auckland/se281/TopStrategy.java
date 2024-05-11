@@ -5,8 +5,8 @@ import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
 public class TopStrategy implements Strategy {
-  Player ai;
-  List<Integer> opponentfingerHistory;
+  private Player ai;
+  private List<Integer> opponentfingerHistory;
 
   public TopStrategy(Player ai, List<Integer> opponentfingerHistory) {
     this.ai = ai;

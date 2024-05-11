@@ -18,6 +18,7 @@ public class Game {
    * Starts a new game of ODD OR EVEN, overwriting any previously existing game.
    * A Human object and Ai object are created, and a welcome message including
    * the human player's name will be printed.
+   * 
    * @param difficulty the difficulty of the AI.
    * @param choice the choice between ODD and EVEN that the human player must achieve.
    * @param options options[0] is the name that the human player has inputted.
@@ -134,6 +135,7 @@ public class Game {
   /**
    * Checks if a game has been started and has not been ended.
    * An error message is printed if a game has not been started.
+   * 
    * @return true if a game has been started and not ended, false otherwise.
    */
   public boolean checkGameActive() {
@@ -148,6 +150,7 @@ public class Game {
   /**
    * Iterates through the winHistory arraylist and adds up the number of times
    * the human player occurs.
+   * 
    * @return the number of rounds the human has won in this game.
    */
   public int getHumanWins() {

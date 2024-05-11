@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Choice;
 
 public abstract class Ai extends Player {
-  Strategy currentStrategy;
+  protected Strategy currentStrategy;
 
   public Ai(Choice userChoice) {
     super("HAL-9000", userChoice);
