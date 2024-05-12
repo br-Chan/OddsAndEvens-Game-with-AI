@@ -5,12 +5,23 @@ import java.util.List;
 
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * A player in the ODD OR EVEN game. It can be either a Human or Ai.
+ * <p>
+ * Every player has a name, target (ODD or EVEN) to achieve, a number of fingers and history that stores these numbers.
+ */
 public abstract class Player {
   final protected String name;
   protected Choice target;
   protected int numOfFingers;
   protected List<Integer> fingerHistory;
 
+  /**
+   * Creates a Player instance.
+   * 
+   * @param name the name of the player.
+   * @param choice the target, ODD or EVEN, that the player must achieve.
+   */
   public Player(String name, Choice choice) {
     this.name = name;
     this.target = choice;
