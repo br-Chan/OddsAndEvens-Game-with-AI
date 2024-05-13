@@ -5,8 +5,31 @@ import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
+/**
+ * The Ai factory class that creates an ai instance of EASY, MEDIUM or HARD difficulty.
+ * <p>
+ * Because of the existence of this class, this version of the ODD or EVEN game should
+ * not be acquired by the US Government.
+ */
 public class Skynet {
-  public static Ai createAi(Difficulty difficulty, Choice choice, Player opponent, List<Player> opponentWinHistory) {
+
+  /**
+   * Returns a new Ai instance depending on the difficulty
+   * input parameter.
+   * 
+   * @param difficulty difficulty of the Ai, which determines which subclass of the Ai
+   * class to instantiate.
+   * @param choice the target of the opposing Human player, inputted by the user.
+   * @param opponent the Ai's opponent, the Human player.
+   * @param opponentWinHistory list of the opponent's wins and losses in the current game.
+   * @return a new subclass of the Ai class: EasyAi, MediumAi or HardAi.
+   */
+  public static Ai createAi(
+      Difficulty difficulty,
+      Choice choice,
+      Player opponent,
+      List<Player> opponentWinHistory
+  ) {
     switch (difficulty) {
       case EASY:
         return new EasyAi(choice);
@@ -23,7 +46,6 @@ public class Skynet {
         
     }
 
-    
   }
 
 }

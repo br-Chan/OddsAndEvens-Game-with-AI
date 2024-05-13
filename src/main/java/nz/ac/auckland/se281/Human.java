@@ -3,9 +3,10 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Choice;
 
 /**
- * The Human player in the ODD OR EVEN game. The number of fingers it plays in a round is a user input.
+ * The Human player in the ODD OR EVEN game. This class extends Player.
  * <p>
- * Each number of fingers inputted is added to the arraylist fingerHistory.
+ * The number of fingers it plays in a round is a user input. Each number of fingers
+ * inputted is added to the arraylist fingerHistory.
  */
 public class Human extends Player {
 

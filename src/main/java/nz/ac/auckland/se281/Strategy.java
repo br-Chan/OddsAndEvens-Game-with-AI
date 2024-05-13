@@ -1,5 +1,9 @@
 package nz.ac.auckland.se281;
 
+/**
+ * An interface that houses the generateNumber function that an Ai instance will use to
+ * pick a number in the ODD OR EVEN game.
+ */
 public interface Strategy {
 
   /**
