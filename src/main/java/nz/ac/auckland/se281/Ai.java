@@ -5,14 +5,12 @@ import nz.ac.auckland.se281.Main.Choice;
 /**
  * The Ai player in the ODD OR EVEN game. This class extends Player.
  *
- * <p>
- * 
- * The number of fingers it plays in a round is determined by its current strategy.
+ * <p>The number of fingers it plays in a round is determined by its current strategy.
  * It overrides the pickFinger method from the Player class, generating a number using
  * the current strategy.
  */
 public abstract class Ai extends Player {
-  protected Strategy currentStrategy;
+  protected Strategy strategy;
 
   /**
    * Creates an Ai instance, setting its target to be opposite that of the Human and
@@ -40,18 +38,18 @@ public abstract class Ai extends Player {
     }
 
     // Set the initial Strategy to Random Strategy.
-    currentStrategy = new RandomStrategy();
+    strategy = new RandomStrategy();
 
   }
 
-  public void setCurrentStrategy(Strategy newStrategy) {
-    this.currentStrategy = newStrategy;
+  public void setStrategy(Strategy newStrategy) {
+    this.strategy = newStrategy;
   }
 
   // Baseline method: 'get the strategy to generate the number'.
   @Override
   public String pickFingers() {
-    return Integer.toString(currentStrategy.generateNumber());
+    return Integer.toString(strategy.generateNumber());
   }
 
 }

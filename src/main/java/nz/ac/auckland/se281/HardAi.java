@@ -44,10 +44,10 @@ public class HardAi extends Ai {
 
     numOfRounds++;
 
-    if (shouldSwitch && currentStrategy instanceof RandomStrategy) {
-      currentStrategy = new TopStrategy(this, opponent.getFingerHistory());
-    } else if (shouldSwitch && currentStrategy instanceof TopStrategy) {
-      currentStrategy = new RandomStrategy();
+    if (shouldSwitch && strategy instanceof RandomStrategy) {
+      strategy = new TopStrategy(this, opponent.getFingerHistory());
+    } else if (shouldSwitch && strategy instanceof TopStrategy) {
+      strategy = new RandomStrategy();
     }
 
     return super.pickFingers();
