@@ -32,8 +32,7 @@ public class TopStrategy implements Strategy {
    * Creates a TopStrategy instance.
    * 
    * @param ai the Ai that will use this instance of TopStrategy.
-   * @param opponentfingerHistory list of the opponent's history of number
-   * of fingers played.
+   * @param opponentfingerHistory list of the opponent's history of number of fingers played.
    */
   public TopStrategy(Player ai, List<Integer> opponentfingerHistory) {
     this.ai = ai;

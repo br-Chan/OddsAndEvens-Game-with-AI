@@ -2,18 +2,18 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * A player in the ODD OR EVEN game. It can be either a Human or Ai.
- * 
+ *
  * <p>
  * 
- * Every player has a name, target (ODD or EVEN) to achieve, a number of fingers and history that stores these numbers.
+ * Every player has a name, target (ODD or EVEN) to achieve, a number of fingers
+ * and history that stores these numbers.
  */
 public abstract class Player {
-  final protected String name;
+  protected final String name;
   protected Choice target;
   protected int numOfFingers;
   protected List<Integer> fingerHistory;

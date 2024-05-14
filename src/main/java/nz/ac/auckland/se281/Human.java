@@ -4,7 +4,7 @@ import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * The Human player in the ODD OR EVEN game. This class extends Player.
- * 
+ *
  * <p>
  * 
  * The number of fingers it plays in a round is a user input. Each number of fingers
@@ -21,7 +21,11 @@ public class Human extends Player {
   public String pickFingers() {
     // Prompt user for input for number of fingers.
     String numOfFingers = null;
-    while (!Utils.isInteger(numOfFingers) || Integer.parseInt(numOfFingers) > 5 || Integer.parseInt(numOfFingers) < 0) {
+    while (
+        !Utils.isInteger(numOfFingers) ||
+        Integer.parseInt(numOfFingers) > 5 ||
+        Integer.parseInt(numOfFingers) < 0
+    ) {
       // If user has input before, print the invalid input message.
       if (numOfFingers != null) {
         MessageCli.INVALID_INPUT.printMessage();

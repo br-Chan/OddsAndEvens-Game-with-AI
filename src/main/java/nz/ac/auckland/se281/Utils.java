@@ -2,7 +2,6 @@ package nz.ac.auckland.se281;
 
 import java.util.Random;
 import java.util.Scanner;
-
 import nz.ac.auckland.se281.Main.Choice;
 
 /**
@@ -18,7 +17,7 @@ public class Utils {
    * <p>You are encouraged to use also other seeds to run your program, you code should work for any
    * seed
    */
-  public static Random random = new Random();
+  public static Random random = new Random(1);
 
   public static Scanner scanner = new Scanner(System.in);
 
@@ -29,8 +28,12 @@ public class Utils {
    * @return "EVEN" or "ODD".
    */
   public static String choiceToString(Choice choice) {
-    if (choice == Choice.EVEN) return "EVEN";
-    else return "ODD";
+    if (choice == Choice.EVEN) {
+      return "EVEN";
+    }
+    else {
+      return "ODD";
+    }
   }
 
   /**

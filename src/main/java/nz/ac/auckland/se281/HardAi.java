@@ -5,7 +5,7 @@ import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * The Ai at HARD difficulty. This class extends Ai.
- * 
+ *
  * <p>
  * 
  * The Medium Ai knows about the opponent and tracks how many rounds have been played.
@@ -37,8 +37,10 @@ public class HardAi extends Ai {
 
   @Override
   public String pickFingers() {
-    // shouldSwitch is 1 for 4th round onwards and the latest win was the human's.
-    boolean shouldSwitch = numOfRounds > 3 && opponentWinHistory.get(opponentWinHistory.size() - 1) == opponent;
+    // shouldSwitch is 1 for 4th round onwards and the latest winner was the human.
+    boolean shouldSwitch =
+        numOfRounds > 3 &&
+        opponentWinHistory.get(opponentWinHistory.size() - 1) == opponent;
 
     numOfRounds++;
 

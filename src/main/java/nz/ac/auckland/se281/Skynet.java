@@ -6,7 +6,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 /**
  * The Ai factory class that creates an ai instance of EASY, MEDIUM or HARD difficulty.
- * 
+ *
  * <p>
  * 
  * Because of the existence of this class, this version of the ODD or EVEN game should
@@ -18,7 +18,7 @@ public class Skynet {
    * Returns a new Ai instance depending on the difficulty
    * input parameter.
    * 
-   * @param difficulty difficulty of the Ai, which determines which subclass of the Ai class to instantiate.
+   * @param difficulty difficulty of the Ai, inputted by the user.
    * @param choice the target of the opposing Human player, inputted by the user.
    * @param opponent the Ai's opponent, the Human player.
    * @param opponentWinHistory list of the opponent's wins and losses in the current game.

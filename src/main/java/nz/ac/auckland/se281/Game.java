@@ -2,7 +2,6 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -45,7 +44,7 @@ public class Game {
    * same. These numbers are printed, the sum is calculated and the winner of the round is 
    * determined (e.g. if the human player's choice was ODD, the human wins if the sum of the
    * two numbers is ODD).
-   * 
+   *
    * <p>
    * 
    * The round's winner is added to the arraylist winHistory.
@@ -79,7 +78,11 @@ public class Game {
     winner = human.getTarget().equals(sumEvenOrOdd) ? human : ai;
     winHistory.add(winner);
     //System.out.println("Win history: " + winHistory);
-    MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(fingerSum), Utils.choiceToString(sumEvenOrOdd), winner.toString());
+    MessageCli.PRINT_OUTCOME_ROUND.printMessage(
+        Integer.toString(fingerSum),
+        Utils.choiceToString(sumEvenOrOdd),
+        winner.toString()
+    );
 
   }
 
@@ -120,8 +123,16 @@ public class Game {
     int humanWins = getHumanWins();
     int aiWins = winHistory.size() - humanWins;
 
-    MessageCli.PRINT_PLAYER_WINS.printMessage(human.toString(), Integer.toString(humanWins), Integer.toString(aiWins));
-    MessageCli.PRINT_PLAYER_WINS.printMessage(ai.toString(), Integer.toString(aiWins), Integer.toString(humanWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        human.toString(),
+        Integer.toString(humanWins),
+        Integer.toString(aiWins)
+    );
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+        ai.toString(),
+        Integer.toString(aiWins),
+        Integer.toString(humanWins)
+    );
   }
 
   /**
