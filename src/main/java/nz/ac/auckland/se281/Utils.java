@@ -3,6 +3,8 @@ package nz.ac.auckland.se281;
 import java.util.Random;
 import java.util.Scanner;
 
+import nz.ac.auckland.se281.Main.Choice;
+
 /**
  * Utility methods for common tasks.
  *
@@ -16,9 +18,20 @@ public class Utils {
    * <p>You are encouraged to use also other seeds to run your program, you code should work for any
    * seed
    */
-  public static Random random = new Random(1);
+  public static Random random = new Random();
 
   public static Scanner scanner = new Scanner(System.in);
+
+  /**
+   * Converts a choice of the enum Choice to its string equivalent.
+   * 
+   * @param choice EVEN or ODD.
+   * @return "EVEN" or "ODD".
+   */
+  public static String choiceToString(Choice choice) {
+    if (choice == Choice.EVEN) return "EVEN";
+    else return "ODD";
+  }
 
   /**
    * Checks if the given string can be parsed into an integer.

@@ -7,7 +7,9 @@ import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * A player in the ODD OR EVEN game. It can be either a Human or Ai.
+ * 
  * <p>
+ * 
  * Every player has a name, target (ODD or EVEN) to achieve, a number of fingers and history that stores these numbers.
  */
 public abstract class Player {

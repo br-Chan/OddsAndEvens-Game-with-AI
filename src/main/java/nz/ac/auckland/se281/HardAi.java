@@ -5,7 +5,9 @@ import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * The Ai at HARD difficulty. This class extends Ai.
+ * 
  * <p>
+ * 
  * The Medium Ai knows about the opponent and tracks how many rounds have been played.
  * It also stores the opponent's history of wins anad losses.
  * It overrides the pickFingers method so that from the 4th round onwards, it switches

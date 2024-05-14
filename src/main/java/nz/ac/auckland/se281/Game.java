@@ -45,7 +45,9 @@ public class Game {
    * same. These numbers are printed, the sum is calculated and the winner of the round is 
    * determined (e.g. if the human player's choice was ODD, the human wins if the sum of the
    * two numbers is ODD).
+   * 
    * <p>
+   * 
    * The round's winner is added to the arraylist winHistory.
    */
   public void play() {
@@ -55,7 +57,6 @@ public class Game {
 
     int fingerSum;
     Choice sumEvenOrOdd;
-    String sumEvenOrOddString;
     Player winner;
 
     // Print "Start round: #x:" where x increases by 1 each time a new round starts.
@@ -70,24 +71,15 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(human.getName(), humanNumOfFingers);
     MessageCli.PRINT_INFO_HAND.printMessage(ai.getName(), aiNumOfFingers);
 
-    // Determine the round outcome.
-    // TODO: improve this code, e.g. make it its own method, etc
+    // Calculate the sum of both numbers.
     fingerSum = Integer.valueOf(humanNumOfFingers) + Integer.valueOf(aiNumOfFingers);
-    if (Utils.isEven(fingerSum)) {
-      sumEvenOrOdd = Choice.EVEN;
-      sumEvenOrOddString = "EVEN";
-    } else {
-      sumEvenOrOdd = Choice.ODD;
-      sumEvenOrOddString = "ODD";
-    }
-    if (human.getTarget().equals(sumEvenOrOdd)) {
-      winner = human;
-    } else {
-      winner = ai;
-    }
+
+    // Determine the winner and print the relevant text.
+    sumEvenOrOdd = Utils.isEven(fingerSum) ? Choice.EVEN : Choice.ODD;
+    winner = human.getTarget().equals(sumEvenOrOdd) ? human : ai;
     winHistory.add(winner);
-    System.out.println("Win history: " + winHistory);
-    MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(fingerSum), sumEvenOrOddString, winner.toString());
+    //System.out.println("Win history: " + winHistory);
+    MessageCli.PRINT_OUTCOME_ROUND.printMessage(Integer.toString(fingerSum), Utils.choiceToString(sumEvenOrOdd), winner.toString());
 
   }
 

@@ -6,13 +6,17 @@ import nz.ac.auckland.se281.Main.Choice;
 /**
  * The Top Strategy that an Ai instance will use in the ODD OR EVEN game.
  * This class implements Strategy.
+ * 
  * <p>
+ * 
  * It overrides the generateNumber function. It stores the numbers of 
  * fingers the opponent has played this game and determines which choice,
  * ODD or EVEN, that the opponent has played the most. If the opponent 
  * has played ODD more than EVEN it will be assumed the opponent will play
  * ODD next, and vice versa. 
+ * 
  * <p>
+ * 
  * If the opponent has played both choices the same number of times, a
  * number between 0 and 5 will be picked randomly. Otherwise, the 
  * generateNumber function will return a random EVEN number if the Ai's

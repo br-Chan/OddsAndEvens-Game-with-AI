@@ -4,7 +4,9 @@ import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * The Ai player in the ODD OR EVEN game. This class extends Player.
+ * 
  * <p>
+ * 
  * The number of fingers it plays in a round is determined by its current strategy.
  * It overrides the pickFinger method from the Player class, generating a number using
  * the current strategy.

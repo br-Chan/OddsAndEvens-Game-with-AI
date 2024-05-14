@@ -4,7 +4,9 @@ import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * The Human player in the ODD OR EVEN game. This class extends Player.
+ * 
  * <p>
+ * 
  * The number of fingers it plays in a round is a user input. Each number of fingers
  * inputted is added to the arraylist fingerHistory.
  */
