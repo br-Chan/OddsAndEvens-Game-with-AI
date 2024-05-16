@@ -14,7 +14,7 @@ public class Skynet {
   /**
    * Returns a new Ai instance depending on the difficulty
    * input parameter.
-   * 
+   *
    * @param difficulty difficulty of the Ai, inputted by the user.
    * @param choice the target of the opposing Human player, inputted by the user.
    * @param opponent the Ai's opponent, the Human player.

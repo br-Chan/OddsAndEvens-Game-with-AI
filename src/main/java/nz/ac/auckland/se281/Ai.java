@@ -5,8 +5,7 @@ import nz.ac.auckland.se281.Main.Choice;
 /**
  * The Ai player in the ODD OR EVEN game. This class extends Player.
  *
- * 
- * The number of fingers it plays in a round is determined by its current strategy.
+ * <p>The number of fingers it plays in a round is determined by its current strategy.
  * It overrides the pickFinger method from the Player class, generating a number using
  * the current strategy.
  */
@@ -16,7 +15,7 @@ public abstract class Ai extends Player {
   /**
    * Creates an Ai instance, setting its target to be opposite that of the Human and
    * setting its current strategy to RandomStrategy.
-   * 
+   *
    * @param userChoice the target of the opposing Human player, inputted by the user.
    */
   public Ai(Choice userChoice) {

@@ -7,7 +7,7 @@ import nz.ac.auckland.se281.Main.Choice;
 /**
  * A player in the ODD OR EVEN game. It can be either a Human or Ai.
  *
- * Every player has a name, target (ODD or EVEN) to achieve, a number of fingers
+ * <p>Every player has a name, target (ODD or EVEN) to achieve, a number of fingers
  * and history that stores these numbers.
  */
 public abstract class Player {
@@ -18,7 +18,7 @@ public abstract class Player {
 
   /**
    * Creates a Player instance.
-   * 
+   *
    * @param name the name of the player.
    * @param choice the target, ODD or EVEN, that the player must achieve.
    */
