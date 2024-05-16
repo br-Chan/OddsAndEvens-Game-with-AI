@@ -43,9 +43,9 @@ public class HardAi extends Ai {
         opponentWinHistory.get(opponentWinHistory.size() - 1) == opponent;
 
     if (shouldSwitch && strategy instanceof RandomStrategy) {
-      strategy = new TopStrategy(this, opponent.getFingerHistory());
+      setStrategy(new TopStrategy(this, opponent.getFingerHistory()));
     } else if (shouldSwitch && strategy instanceof TopStrategy) {
-      strategy = new RandomStrategy();
+      setStrategy(new RandomStrategy());
     }
 
     return super.pickFingers();

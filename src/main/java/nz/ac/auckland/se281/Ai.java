@@ -38,7 +38,7 @@ public abstract class Ai extends Player {
     }
 
     // Set the initial Strategy to Random Strategy.
-    strategy = new RandomStrategy();
+    setStrategy(new RandomStrategy());
 
   }
 

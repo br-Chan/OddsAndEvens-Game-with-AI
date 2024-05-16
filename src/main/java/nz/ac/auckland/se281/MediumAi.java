@@ -34,7 +34,7 @@ public class MediumAi extends Ai {
     
     // If this is the 4th round, switch from Random to Top Strategy.
     if (numOfRounds == 4) {
-      strategy = new TopStrategy(this, opponent.getFingerHistory());
+      setStrategy(new TopStrategy(this, opponent.getFingerHistory()));
     }
 
     return super.pickFingers();
