@@ -6,8 +6,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 /**
  * The Ai factory class that creates an ai instance of EASY, MEDIUM or HARD difficulty.
- *
- * Because of the existence of this class, this version of the ODD or EVEN game should
+ * <p>Because of the existence of this class, this version of the ODD or EVEN game should
  * not be acquired by the US Government.
  */
 public class Skynet {
