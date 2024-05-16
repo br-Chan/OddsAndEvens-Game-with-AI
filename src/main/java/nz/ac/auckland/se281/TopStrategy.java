@@ -41,8 +41,6 @@ public class TopStrategy implements Strategy {
     int numberOfEvenFingers = 0;
     Choice assumedOpponentChoice = Choice.ODD; // Initially assume opponent will play odd.
 
-    System.out.println(opponentfingerHistory); // TODO remove this when required
-
     // Use a for loop to increment the number of evens played,
     // and assume the opponent will play even if this number surpasses half the history size.
     for (int n : opponentfingerHistory) {

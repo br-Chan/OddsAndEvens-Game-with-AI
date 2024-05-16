@@ -43,7 +43,9 @@ public class Game {
    * in this game. The Ai picks a number from 0 to 5 and the human player is prompted to do the
    * same. These numbers are printed, the sum is calculated and the winner of the round is 
    * determined (e.g. if the human player's choice was ODD, the human wins if the sum of the
-   * two numbers is ODD).<p>The round's winner is added to the arraylist winHistory.
+   * two numbers is ODD).
+   *
+   * <p>The round's winner is added to the arraylist winHistory.
    */
   public void play() {
     if (!checkGameActive()) {
@@ -73,7 +75,6 @@ public class Game {
     sumEvenOrOdd = Utils.isEven(fingerSum) ? Choice.EVEN : Choice.ODD;
     winner = human.getTarget().equals(sumEvenOrOdd) ? human : ai;
     winHistory.add(winner);
-    //System.out.println("Win history: " + winHistory);
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(
         Integer.toString(fingerSum),
         Utils.choiceToString(sumEvenOrOdd),
@@ -116,9 +117,11 @@ public class Game {
       return;
     }
 
+    // Calculate the human and AI's wins.
     int humanWins = getHumanWins();
     int aiWins = winHistory.size() - humanWins;
 
+    // Print the human and AI's wins.
     MessageCli.PRINT_PLAYER_WINS.printMessage(
         human.toString(),
         Integer.toString(humanWins),

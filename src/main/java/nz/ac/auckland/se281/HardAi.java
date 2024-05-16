@@ -44,10 +44,8 @@ public class HardAi extends Ai {
 
     if (shouldSwitch && strategy instanceof RandomStrategy) {
       strategy = new TopStrategy(this, opponent.getFingerHistory());
-      System.out.println("Switching to Top");
     } else if (shouldSwitch && strategy instanceof TopStrategy) {
       strategy = new RandomStrategy();
-      System.out.println("Switching to Random");
     }
 
     return super.pickFingers();

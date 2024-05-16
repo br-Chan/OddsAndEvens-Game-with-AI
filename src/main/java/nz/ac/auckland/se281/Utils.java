@@ -23,15 +23,14 @@ public class Utils {
 
   /**
    * Converts a choice of the enum Choice to its string equivalent.
-   * 
+   *
    * @param choice EVEN or ODD.
    * @return "EVEN" or "ODD".
    */
   public static String choiceToString(Choice choice) {
     if (choice == Choice.EVEN) {
       return "EVEN";
-    }
-    else {
+    } else {
       return "ODD";
     }
   }
