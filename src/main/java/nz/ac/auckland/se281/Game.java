@@ -45,8 +45,6 @@ public class Game {
    * determined (e.g. if the human player's choice was ODD, the human wins if the sum of the
    * two numbers is ODD).
    *
-   * <p>
-   * 
    * The round's winner is added to the arraylist winHistory.
    */
   public void play() {

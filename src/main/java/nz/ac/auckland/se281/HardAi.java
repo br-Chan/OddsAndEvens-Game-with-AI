@@ -6,8 +6,6 @@ import nz.ac.auckland.se281.Main.Choice;
 /**
  * The Ai at HARD difficulty. This class extends Ai.
  *
- * <p>
- * 
  * The Medium Ai knows about the opponent and tracks how many rounds have been played.
  * It also stores the opponent's history of wins anad losses.
  * It overrides the pickFingers method so that from the 4th round onwards, it switches
@@ -37,17 +35,19 @@ public class HardAi extends Ai {
 
   @Override
   public String pickFingers() {
+    numOfRounds++;
+    
     // shouldSwitch is 1 for 4th round onwards and the latest winner was the human.
     boolean shouldSwitch =
         numOfRounds > 3 &&
         opponentWinHistory.get(opponentWinHistory.size() - 1) == opponent;
 
-    numOfRounds++;
-
     if (shouldSwitch && strategy instanceof RandomStrategy) {
       strategy = new TopStrategy(this, opponent.getFingerHistory());
+      System.out.println("Switching to Top");
     } else if (shouldSwitch && strategy instanceof TopStrategy) {
       strategy = new RandomStrategy();
+      System.out.println("Switching to Random");
     }
 
     return super.pickFingers();
